@@ -38,7 +38,7 @@ class CategoryFormRequest extends FormRequest
                         
                     ],
                     'image'=>[    
-                        'required',
+                        'nullable',
                             'mimes:jpeg,jpg,png'
                             
                         ],
@@ -58,12 +58,12 @@ class CategoryFormRequest extends FormRequest
                                     ],
                                     'navbar_status'=>[    
                                         'nullable',
-                                            'boolean'
+                                           
                                             
                                         ],
                                         'status'=>[    
                                             'nullable',
-                                                'boolean'
+                                              
                                             ],
                                             
         ];
