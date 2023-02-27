@@ -21,10 +21,7 @@ class Category extends Model
             'status',
             'created_by'
     ];
-    public function post()
-    {
-        return $this->hasMany(Post::class,'id','category_id');
-    }
+  
 
 }
 
