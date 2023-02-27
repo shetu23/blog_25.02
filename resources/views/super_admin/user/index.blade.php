@@ -18,29 +18,31 @@
                             <thead>
                                 <tr>
                             <th>Id</th>
-                            <th>category</th>
-                            <th>post name</th>
+                            <th>username</th>
+                            <th>email</th>
                          
-                           <th>status</th>
+                           <th>role</th>
                            <th>edit</th>
-                            <th>delete</th>
+                          
                             </tr>
 
                         </thead>
                        <tbody>
-                      @foreach($post as $item)
+                      @foreach($users as $item)
                       <tr>
                        <td>{{$item->id}}</td>
-                       <td>{{$item->category->name}}</td>
                        <td>{{$item->name}}</td>
-                       <td>{{$item->status == '1' ? 'hidden':'shown'}}</td>
+                       <td>{{$item->email}}</td>
                        <td>
-                        <a href="{{url('admin/post/'.$item->id)}}" class="btn btn-success">edit</a>
-                       </td>
+                       @if($item->role_as=='1'){{'admin'}}
+                       @elseif($item->role_as=='2'){{'super_admin'}} 
+                       @else{{'author'}}
+                      @endif
+                     </td>
                        <td>
-                        <a href="{{url('admin/delete-post/'.$item->id)}}" class="btn btn-success">delete</a>
+                        <a href="{{url('super_admin/user/'.$item->id)}}" class="btn btn-success">edit</a>
                        </td>
-                      
+                       
                     </tr>
                       @endforeach
                    

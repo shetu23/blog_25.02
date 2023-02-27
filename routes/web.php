@@ -33,8 +33,16 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function()
     Route::get('posts',[App\Http\Controllers\Admin\PostController::class,'index']);
     Route::get('/add-post',[App\Http\Controllers\Admin\PostController::class,'create']);
     Route::post('/add-post',[App\Http\Controllers\Admin\PostController::class,'store']);
+    Route::get('/post/{post_id}',[App\Http\Controllers\Admin\PostController::class,'edit']);
+    Route::put('/update-post/{post_id}',[App\Http\Controllers\Admin\PostController::class,'update']);
+    Route::get('delete-post/{post_id}',[App\Http\Controllers\Admin\PostController::class,'destroy']);
+
 });
 Route::prefix('super_admin')->middleware(['auth','isSuperAdmin'])->group(function()
 {
     Route::get('/super_dashboard',[App\Http\Controllers\SuperAdmin\SuperDashboardController::class,'index']);
+
+    Route::get('users',[App\Http\Controllers\SuperAdmin\UserController::class,'index']);
+    Route::get('/user/{user_id}',[App\Http\Controllers\SuperAdmin\UserController::class,'edit']);
+    Route::put('/update-user/{user_id}',[App\Http\Controllers\SuperAdmin\UserController::class,'update']);
 });
