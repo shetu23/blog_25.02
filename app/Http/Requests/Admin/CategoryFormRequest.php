@@ -38,7 +38,7 @@ class CategoryFormRequest extends FormRequest
                         
                     ],
                     'image'=>[    
-                        'nullable',
+                        'required',
                             'mimes:jpeg,jpg,png'
                             
                         ],

@@ -16,11 +16,12 @@ class Category extends Model
             'image',
             'meta_title',
             'meta_description',
-            'meta-keyword',
+            'meta_keyword',
             'navbar_status',
             'status',
             'created_by'
     ];
+   
   
 
 }

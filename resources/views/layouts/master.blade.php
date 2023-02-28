@@ -20,6 +20,20 @@
 <link href=" https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.js" rel="stylesheet">
 </head>
 <body>
+    @if(Auth::user()->role_as=='2')
+    @include('super_admin.super_navbar')
+<div id="layoutSidenav">
+    @include('super_admin.super_sidebar')
+    <div id="layoutSidenav_content">
+                <main>
+                    @yield('content')
+               </main>
+               @include('super_admin.super_footer')           
+               
+    </div>           
+</div>
+@endif
+@if(Auth::user()->role_as=='1')
     @include('layouts.inc.admin-navbar')
 <div id="layoutSidenav">
     @include('layouts.inc.admin-sidebar')
@@ -31,6 +45,7 @@
                
     </div>           
 </div>
+@endif
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}" ></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" ></script>
 <script src="{{asset('assets/js/scripts.js')}}" >
