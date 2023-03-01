@@ -1,4 +1,10 @@
 @extends ('layouts.app')
+@section('title',"$category->meta_title")
+@section('meta_description',"$category->meta_description")
+@section('meta_keyword',"$category->meta_keyword")
+<!-- @section('author',"Auth::user()->name") -->
+@section('author',"blog_name")
+
 @section('content')
 <div class="py-4">
     <div class="container">
@@ -13,8 +19,7 @@
                 <div class="card-body">
                     <a href="{{url('tutorial/'.$category->slug.'/'.$postitem->slug)}}" class="text-decoration-none"> <h2 class="post-heading">{{$postitem->name}}</h2></a>
                    <h6>posted on: {{$postitem->created_at->format('d-m-Y')}}</h6>
-                 <h6>  <span class="ms-3">posted by: {{$postitem->user->name}}</span>
-                 </h6>
+                 <h6>  <span class="ms-3">posted by: {{$postitem->user->name}}</span> </h6>
                 </div>
                 </div>
               

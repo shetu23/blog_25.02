@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->mediumText('description');
-            $table->string('image');
+            $table->file('image');
             $table->string('meta_title');
             $table->text('meta_description');
             $table->text('meta_keyword');

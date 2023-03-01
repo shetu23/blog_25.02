@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\FrontEnd\frontEndController::class, 'index']);
 Route::get('tutorial/{category_slug}', [App\Http\Controllers\FrontEnd\frontEndController::class, 'viewCategoryPost']);
-
+Route::get('tutorial/{category_slug}/{post_slug}', [App\Http\Controllers\FrontEnd\frontEndController::class, 'viewPost']);
 
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function()
@@ -50,4 +50,18 @@ Route::prefix('super_admin')->middleware(['auth','isSuperAdmin'])->group(functio
     Route::get('users',[App\Http\Controllers\SuperAdmin\UserController::class,'index']);
     Route::get('/user/{user_id}',[App\Http\Controllers\SuperAdmin\UserController::class,'edit']);
     Route::put('/update-user/{user_id}',[App\Http\Controllers\SuperAdmin\UserController::class,'update']);
+
+    Route::get('/category',[App\Http\Controllers\SuperAdmin\CategoryController::class,'index']);
+    Route::get('/add-category',[App\Http\Controllers\SuperAdmin\CategoryController::class,'create']);
+    Route::post('/add-category',[App\Http\Controllers\SuperAdmin\CategoryController::class,'store']);
+    Route::get('/edit-category/{category_id}',[App\Http\Controllers\SuperAdmin\CategoryController::class,'edit']);
+    Route::put('/update-category/{category_id}',[App\Http\Controllers\SuperAdmin\CategoryController::class,'update']);
+    Route::get('/delete-category/{category_id}',[App\Http\Controllers\SuperAdmin\CategoryController::class,'destroy']); 
+    
+    Route::get('posts',[App\Http\Controllers\SuperAdmin\PostController::class,'index']);
+    Route::get('/add-post',[App\Http\Controllers\SuperAdmin\PostController::class,'create']);
+    Route::post('/add-post',[App\Http\Controllers\SuperAdmin\PostController::class,'store']);
+    Route::get('/post/{post_id}',[App\Http\Controllers\SuperAdmin\PostController::class,'edit']);
+    Route::put('/update-post/{post_id}',[App\Http\Controllers\SuperAdmin\PostController::class,'update']);
+    Route::get('delete-post/{post_id}',[App\Http\Controllers\SuperAdmin\PostController::class,'destroy']);
 });
