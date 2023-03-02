@@ -33,8 +33,10 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function()
     Route::post('/add-category',[App\Http\Controllers\Admin\CategoryController::class,'store']);
     Route::get('/edit-category/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'edit']);
     Route::put('/update-category/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'update']);
-    Route::get('/delete-category/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'destroy']); 
-    
+  
+    Route::post('/delete-category',[App\Http\Controllers\Admin\CategoryController::class,'destroy']);    
+  
+  
     Route::get('posts',[App\Http\Controllers\Admin\PostController::class,'index']);
     Route::get('/add-post',[App\Http\Controllers\Admin\PostController::class,'create']);
     Route::post('/add-post',[App\Http\Controllers\Admin\PostController::class,'store']);
@@ -64,4 +66,23 @@ Route::prefix('super_admin')->middleware(['auth','isSuperAdmin'])->group(functio
     Route::get('/post/{post_id}',[App\Http\Controllers\SuperAdmin\PostController::class,'edit']);
     Route::put('/update-post/{post_id}',[App\Http\Controllers\SuperAdmin\PostController::class,'update']);
     Route::get('delete-post/{post_id}',[App\Http\Controllers\SuperAdmin\PostController::class,'destroy']);
+});
+Route::prefix('author')->group(function(){
+
+    Route::get('/authordashboard',[App\Http\Controllers\Author\authordashboardController::class,'index']);
+
+    Route::get('posts',[App\Http\Controllers\Author\PostController::class,'index']);
+    Route::get('/add-post',[App\Http\Controllers\Author\PostController::class,'create']);
+    Route::post('/add-post',[App\Http\Controllers\Author\PostController::class,'store']);
+    Route::get('/post/{post_id}',[App\Http\Controllers\Author\PostController::class,'edit']);
+    Route::put('/update-post/{post_id}',[App\Http\Controllers\Author\PostController::class,'update']);
+    Route::get('delete-post/{post_id}',[App\Http\Controllers\Author\PostController::class,'destroy']);
+
+    Route::get('/category',[App\Http\Controllers\Author\CategoryController::class,'index']);
+    Route::get('/add-category',[App\Http\Controllers\Author\CategoryController::class,'create']);
+    Route::post('/add-category',[App\Http\Controllers\Author\CategoryController::class,'store']);
+    Route::get('/edit-category/{category_id}',[App\Http\Controllers\Author\CategoryController::class,'edit']);
+    Route::put('/update-category/{category_id}',[App\Http\Controllers\Author\CategoryController::class,'update']);
+    Route::get('/delete-category/{category_id}',[App\Http\Controllers\Author\CategoryController::class,'destroy']); 
+
 });

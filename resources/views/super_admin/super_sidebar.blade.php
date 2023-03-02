@@ -3,7 +3,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link  {{Request::is('super_admin/dashboard') ? 'active':''}}" href="{{url('super_admin/dashboard')}}">
+                            <a class="nav-link  {{Request::is('super_admin/super_dashboard') ? 'active':''}}" href="{{url('super_admin/super_dashboard')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 superDashboard
                             </a>
@@ -19,12 +19,12 @@
                                     <a class="nav-link {{Request::is('super_admin/category') || Request::is('super_admin/edit-category/*') ? 'active':''}}" href="{{url('/super_admin/category')}}">view category</a>
                                 </nav>
                             </div>
-                            <a class="nav-link {{Request :: is('admin/posts') || Request :: is('admin/add-post')  || Request::is('super_admin/post/*') ? 'collapse active':'collapsed'}}" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link {{Request :: is('super_admin/posts') || Request :: is('super_admin/add-post')  || Request::is('super_admin/post/*') ? 'collapse active':'collapsed'}}" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Posts
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse {{Request :: is('admin/posts') || Request :: is('admin/add-post')  || Request::is('super_admin/post/*') ? 'show':''}}" id="collapsePosts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse {{Request :: is('super_admin/posts') || Request :: is('super_admin/add-post')  || Request::is('super_admin/post/*') ? 'show':''}}" id="collapsePosts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link {{Request::is('super_admin/add-post') ? 'active':''}}" href="{{url('super_admin/add-post')}}">add post</a>
                                     <a class="nav-link {{Request::is('super_admin/posts') || Request::is('super_admin/post/*') ? 'active':''}}" href="{{url('/super_admin/posts')}}">view post</a>

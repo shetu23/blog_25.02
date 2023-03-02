@@ -23,7 +23,7 @@ class adminMiddleware
             }
             else
             {
-                return redirect('/home')->with('status','access denied!');
+                return redirect('/author/authordashboard')->with('status','hello!');
             }
         }
         else

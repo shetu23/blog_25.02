@@ -46,6 +46,19 @@
     </div>           
 </div>
 @endif
+@if(Auth::user()->role_as=='0')
+    @include('author.author_navbar')
+<div id="layoutSidenav">
+    @include('author.author_sidebar')
+    <div id="layoutSidenav_content">
+                <main>
+                    @yield('content')
+               </main>
+               @include('author.author_footer')           
+               
+    </div>           
+</div>
+@endif
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}" ></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" ></script>
 <script src="{{asset('assets/js/scripts.js')}}" >
@@ -68,6 +81,6 @@
 $(document).ready( function () {
     $('#myDataTable').DataTable();
 } );</script>
-
+@yield('scripts')
 </body>
 </html>
