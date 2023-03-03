@@ -47,6 +47,10 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function()
     Route::get('/newcategory/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'newpost']);
     Route::put('/update-newcategory/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'approval']);
 
+    
+    Route::get('/newpost/{post_id}',[App\Http\Controllers\Admin\PostController::class,'newpost']);
+    Route::put('/update-newpost/{post_id}',[App\Http\Controllers\Admin\PostController::class,'approval']);
+
 });
 Route::prefix('super_admin')->middleware(['auth','isSuperAdmin'])->group(function()
 {

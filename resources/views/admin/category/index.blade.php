@@ -58,15 +58,27 @@
                        <td>
                         <img src="{{asset('uploads/category/'.$item->image)}}" width="50px" height="50px" alt="img">
                        </td>
+                       @if($item->created_by == Auth::user()->id && Auth::user()->role_as==1)
+                       $item->is_approved=1
+                       <td>{{$item->is_approved == '1' ? 'posted':'draft'}}</td>
+                       @endif
+                       @if($item->created_by != Auth::user()->id && Auth::user()->role_as==1)
                        <td>{{$item->is_approved == '1' ? 'approved':'pending'}}</td>
+                       @endif
                        <td>{{$item->status == '1' ? 'hidden':'shown'}}</td>
                        <td>
+                        @if($item->created_by == Auth::user()->id && Auth::user()->role_as==1)
                         <a href="{{url('admin/edit-category/'.$item->id)}}" class="btn btn-success">edit</a>
+                        @endif
+                        @if($item->created_by != Auth::user()->id && Auth::user()->role_as==1)
+                        <a href="{{url('admin/newcategory/'.$item->id)}}" class="btn btn-success">edit</a>
+                        @endif
                        </td>
                        <td>
                         <button type="button" class="btn btn-danger deleteCategoryBtn" value="{{$item->id}}">delete</button>
                     </td>
                     </tr>
+               
                       @endforeach
                    
                     </tbody>

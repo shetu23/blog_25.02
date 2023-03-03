@@ -77,4 +77,21 @@ class PostController extends Controller
    
     }
 
+    public function newpost($post_id)
+{
+   
+    $post=Post::find($post_id);
+    return view('admin.post.newpost',compact('post'));
+}
+public function approval(Request $request,$post_id)
+{
+    $post= Post::find($post_id);
+   if($post)
+   {
+    $post->is_approved=$request->is_approved;
+    $post->update();
+    return redirect('admin/posts')->with('message','updated');
+   }
+}
+
 }

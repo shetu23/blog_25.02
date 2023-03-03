@@ -28,6 +28,9 @@ public function posts()
 {
     return $this->hasMany(Post::class,'category_id','id');
 }
-
+public function user_c()
+{
+    return $this->belongsTo(User::class,'created_by','id');
+}
 }
 

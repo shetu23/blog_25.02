@@ -102,12 +102,14 @@ Integer quis ante dignissim nisi venenatis ullamcorper ac et augue. Nulla vel pu
             </div>
             <div class="col-md-8">
             @foreach($latest_posts as $post_i)
+            @if($post_i->is_approved == 1)
                 <div class="card card-body shadow mb-3 text-center">
                     <a href="{{url('tutorial/'.$post_i->category->slug.'/'.$post_i->slug)}}" class="text-decoration-none text-center text-dark" >
                       <h5>{{$post_i->name}}</h5>  
                     </a>
                     <p>posted on: {{$post_i->created_at->format('d-m-Y')}}</p>
                 </div>
+                @endif
                 @endforeach
             </div>
             <div class="col-md-4">

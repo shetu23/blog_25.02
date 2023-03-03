@@ -24,9 +24,9 @@
     color:gray;
 }
 .owl-nav button.owl-next,.owl-nav button.owl-prev{
-    color:black !important;
+    color:white !important;
     margin-left:10px;
-    background-color: olive !important;
+    background-color:brown !important;
     outline: none;
     border: none !important;
     font-size: 20px !important;

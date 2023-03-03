@@ -37,7 +37,7 @@ class CategoryController extends Controller
         $category->meta_title=$data['meta_title'];
         $category->meta_description=$data['meta_description'];
         $category->meta_keyword=$data['meta_keyword'];
-
+        $category->is_approved=$request->is_approved==true;
         $category->navbar_status=$request->navbar_status==true ? '1':'0';
         $category->status=$request->status==true ? '1':'0';
         $category->created_by=Auth::user()->id;
@@ -74,6 +74,7 @@ class CategoryController extends Controller
         $category->meta_description=$data['meta_description'];
         $category->meta_keyword=$data['meta_keyword'];
 
+        $category->is_approved=$request->is_approved==true;
         $category->navbar_status=$request->navbar_status==true ? '1':'0';
         $category->status=$request->status==true ? '1':'0';
         $category->created_by=Auth::user()->id;

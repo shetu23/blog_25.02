@@ -20,7 +20,7 @@
                             <th>Id</th>
                             <th>category</th>
                             <th>post name</th>
-                         
+                            <th>is_approved</th>
                            <th>status</th>
                            <th>edit</th>
                             <th>delete</th>
@@ -33,9 +33,15 @@
                        <td>{{$item->id}}</td>
                        <td>{{$item->category->name}}</td>
                        <td>{{$item->name}}</td>
+                       <td>{{$item->is_approved == '1' ? 'approved':'pending'}}</td>
                        <td>{{$item->status == '1' ? 'hidden':'shown'}}</td>
                        <td>
+                       @if($item->created_by == Auth::user()->id && Auth::user()->role_as==1)
                         <a href="{{url('admin/post/'.$item->id)}}" class="btn btn-success">edit</a>
+                        @endif
+                        @if($item->created_by != Auth::user()->id && Auth::user()->role_as==1)
+                        <a href="{{url('admin/newpost/'.$item->id)}}" class="btn btn-success">edit</a>
+                        @endif
                        </td>
                        <td>
                         <a href="{{url('admin/delete-post/'.$item->id)}}" class="btn btn-success">delete</a>
