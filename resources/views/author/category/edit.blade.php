@@ -49,10 +49,7 @@
     <textarea name="meta_keyword" rows="3" class="form-control">{{$category->meta_keyword}}</textarea>
 </div>
 <div class="row">
-    <div class="col-md-3 mb-3">
-    <label>is_approved</label>
-    <input type="checkbox" name="is_approved"  {{$category->is_approved == '1' ? 'checked':''}}/>
-</div>
+   
 <h6>Status mode</h6>
 <div class="row">
     <div class="col-md-3 mb-3">

@@ -48,10 +48,7 @@
     <textarea name="meta_keyword" rows="3" class="form-control"></textarea>
 </div>
 <div class="row">
-    <div class="col-md-3 mb-3">
-    <label>is_approved</label>
-    <input type="checkbox" name="is_approved"/>
-</div>
+  
 <h6>Status mode</h6>
 <div class="row">
     <div class="col-md-3 mb-3">

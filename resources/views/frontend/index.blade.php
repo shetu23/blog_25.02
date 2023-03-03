@@ -71,11 +71,13 @@ Integer quis ante dignissim nisi venenatis ullamcorper ac et augue. Nulla vel pu
             </div>
             <div class="col-md-8">
             @foreach($all_categories as $all_cat_i)
+            @if($all_cat_i->is_approved == 1)
                 <div class="card card-body shadow mb-3">
                     <a href="{{url('tutorial/'.$all_cat_i->slug)}}" class="text-decoration-none text-center text-dark" >
                        <h5>{{$all_cat_i->name}}</h5> 
                     </a>
                 </div>
+                @endif
                 @endforeach
             </div>
             <div class="col-md-4">
