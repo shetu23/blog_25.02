@@ -16,7 +16,7 @@
 </div>
 @endif
 
-    <form action="{{url('admin/update-category/'.$category->id)}}" method="POST" enctype="multipart/form-data">
+    <form action="{{url('author/update-category/'.$category->id)}}" method="POST" enctype="multipart/form-data">
      @csrf
      @method('PUT')
 <div class="mb-3">
@@ -51,7 +51,7 @@
 <div class="row">
     <div class="col-md-3 mb-3">
     <label>is_approved</label>
-    <input type="checkbox" name="is_approved"  {{$category->is_approved== '1' ? 'checked':''}}/>
+    <input type="checkbox" name="is_approved"  {{$category->is_approved == '1' ? 'checked':''}}/>
 </div>
 <h6>Status mode</h6>
 <div class="row">

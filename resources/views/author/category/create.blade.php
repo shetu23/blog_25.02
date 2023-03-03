@@ -1,14 +1,10 @@
 @extends('layouts.master')
-@section('title','blog dashboard')
+@section('title','category')
 @section('content')
-<div class="container-fluid px-4">  
-        <div class="card mt-4">
-                            <div class="card-header">
-                                <h4>add posts
-                                    <a href="{{url('admin/add-post')}}"
-                                    class="btn btn-primary btn-sm float-end">
-                                    add posts</a>
-</h4>
+<div class="container-fluid px-4">
+                        <div class="card mt-4">
+                            <div class="card-header"><h4 class="">add-category</h4>
+                       
 </div>
 <div class="card-body">
 
@@ -20,18 +16,10 @@
 </div>
 @endif
 
-    <form action="{{url('admin/add-post')}}" method="POST" >
+    <form action="{{url('author/add-category')}}" method="POST" enctype="multipart/form-data">
      @csrf
 <div class="mb-3">
-    <label for="">Category </label>
-   <select name="category_id" class="form-control">
-    @foreach ($category as $cateitem)
-    <option value="{{$cateitem->id}}">{{$cateitem->name}}</option>
-    @endforeach
-</select>
-</div>
-<div class="mb-3">
-    <label for="">post name</label>
+    <label for="">category name</label>
     <input type="text" name="name" class="form-control">
 </div>
 <div class="mb-3">
@@ -40,11 +28,11 @@
 </div>
 <div class="mb-3">
     <label for="">description</label>
-    <textarea name="description" rows="5"  id="mySummernote" class="form-control"></textarea>
+    <textarea name="description" rows="5" id="mySummernote" class="form-control"></textarea>
 </div>
 <div class="mb-3">
-    <label>yt_iframe link</label>
-    <input type="text" name="yt_iframe" class="form-control">
+    <label>image</label>
+    <input type="file" name="image" class="form-control">
 </div>
 <h6>SEO tags</h6>
 <div class="mb-3">
@@ -59,20 +47,29 @@
     <label>meta keywords</label>
     <textarea name="meta_keyword" rows="3" class="form-control"></textarea>
 </div>
+<div class="row">
+    <div class="col-md-3 mb-3">
+    <label>is_approved</label>
+    <input type="checkbox" name="is_approved"/>
+</div>
 <h6>Status mode</h6>
-
+<div class="row">
+    <div class="col-md-3 mb-3">
+    <label>navbar status</label>
+    <input type="checkbox" name="navbar_status"/>
+</div>
 <div class="col-md-3 mb-3">
     <label>status</label>
     <input type="checkbox" name="status"/>
 </div>
 <div class="col-md-6">
-    <button type="submit" class="btn btn-primary">save post</button>
+    <button type="submit" class="btn btn-primary">save category</button>
 </div>
 
 </div>
     </form>
-</div>    
+
 </div>
-                    
+</div>
 </div>
 @endsection

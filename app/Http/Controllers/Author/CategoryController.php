@@ -4,22 +4,22 @@ namespace App\Http\Controllers\Author;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Admin\CategoryFormRequest;
 use Illuminate\Support\Str;
+
 class CategoryController extends Controller
 {
     public function index()
     {
         $category=Category::all();
-        return view('admin.category.index',compact('category'));
+        return view('author.category.index',compact('category'));
     }
     public function create()
     {
-        return view('admin.category.create');
+        return view('author.category.create');
     }
     public function store(CategoryFormRequest $request)
     {
@@ -38,17 +38,17 @@ class CategoryController extends Controller
         $category->meta_title=$data['meta_title'];
         $category->meta_description=$data['meta_description'];
         $category->meta_keyword=$data['meta_keyword'];
-
+        $category->is_approved=$request->is_approved==true ? '1':'0';
         $category->navbar_status=$request->navbar_status==true ? '1':'0';
         $category->status=$request->status==true ? '1':'0';
         $category->created_by=Auth::user()->id;
         $category->save();
-        return redirect('/admin/category')->with('message','category created successfully');
+        return redirect('/author/category')->with('message','category created successfully');
     }
     public function edit($category_id)
     {
         $category=Category::find($category_id);
-        return view('admin.category.edit',compact('category'));
+        return view('author.category.edit',compact('category'));
     }
     public function update(CategoryFormRequest $request,$category_id)
     {
@@ -74,12 +74,12 @@ class CategoryController extends Controller
         $category->meta_title=$data['meta_title'];
         $category->meta_description=$data['meta_description'];
         $category->meta_keyword=$data['meta_keyword'];
-
+        $category->is_approved=$request->is_approved==true ? '1':'0';
         $category->navbar_status=$request->navbar_status==true ? '1':'0';
         $category->status=$request->status==true ? '1':'0';
         $category->created_by=Auth::user()->id;
         $category->update();
-        return redirect('/admin/category')->with('message','category updated successfully');
+        return redirect('/author/category')->with('message','category updated successfully');
     }
     public function destroy(Request $request)
     {
@@ -92,11 +92,11 @@ class CategoryController extends Controller
             }
             $category->posts->each->delete();
         $category->delete();
-            return redirect('admin/category')->with('message','category deleted with its posts successfully');
+            return redirect('author/category')->with('message','category deleted with its posts successfully');
     }
     else
     {
-        return redirect('admin/category')->with('message','category id not found');
+        return redirect('author/category')->with('message','category id not found');
     }
 }
 }

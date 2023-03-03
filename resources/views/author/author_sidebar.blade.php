@@ -3,31 +3,31 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link {{Request::is('admin/dashboard') ? 'active':''}}" href="{{url('admin/dashboard')}}">
+                            <a class="nav-link {{Request::is('author/authordashboard') ? 'active':''}}" href="{{url('author/authordashboard')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                adminDashboard
+                                authorDashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link {{Request :: is('admin/category') || Request :: is('admin/add-category') || Request::is('admin/edit-category/*') ? 'collapse active':'collapsed'}}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link {{Request :: is('author/category') || Request :: is('author/add-category') || Request::is('author/edit-category/*') ? 'collapse active':'collapsed'}}" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Category
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse {{Request :: is('admin/category') || Request :: is('admin/add-category') || Request::is('admin/edit-category/*') ? 'show':''}}" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse {{Request :: is('author/category') || Request :: is('author/add-category') || Request::is('author/edit-category/*') ? 'show':''}}" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link {{Request::is('admin/add-category') ? 'active':''}}" href="{{url('admin/add-category')}}">add category</a>
-                                    <a class="nav-link {{Request::is('admin/category') || Request::is('admin/edit-category/*') || Request::is('admin/edit-category/*') ? 'active':''}}" href="{{url('/admin/category')}}">view category</a>
+                                    <a class="nav-link {{Request::is('author/add-category') ? 'active':''}}" href="{{url('author/add-category')}}">add category</a>
+                                    <a class="nav-link {{Request::is('author/category') || Request::is('author/edit-category/*') || Request::is('author/edit-category/*') ? 'active':''}}" href="{{url('/author/category')}}">view category</a>
                                 </nav>
                             </div>
-                            <a class="nav-link {{Request :: is('admin/posts') || Request :: is('admin/add-post') || Request::is('admin/post/*')  ? 'collapse active':'collapsed'}}" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link {{Request :: is('author/posts') || Request :: is('author/add-post') || Request::is('author/post/*')  ? 'collapse active':'collapsed'}}" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Posts
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse {{Request :: is('admin/posts') || Request :: is('admin/add-post') ||Request::is('admin/post/*') ? 'show':''}}" id="collapsePosts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse {{Request :: is('author/posts') || Request :: is('author/add-post') ||Request::is('author/post/*') ? 'show':''}}" id="collapsePosts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link {{Request::is('admin/add-post') ? 'active':''}}" href="{{url('admin/add-post')}}">add post</a>
-                                    <a class="nav-link {{Request::is('admin/posts') || Request::is('admin/post/*') ? 'active':''}}" href="{{url('/admin/posts')}}">view post</a>
+                                    <a class="nav-link {{Request::is('author/add-post') ? 'active':''}}" href="{{url('author/add-post')}}">add post</a>
+                                    <a class="nav-link {{Request::is('author/posts') || Request::is('author/post/*') ? 'active':''}}" href="{{url('/author/posts')}}">view post</a>
                                 </nav>
                             </div>
                        

@@ -44,6 +44,9 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function()
     Route::put('/update-post/{post_id}',[App\Http\Controllers\Admin\PostController::class,'update']);
     Route::get('delete-post/{post_id}',[App\Http\Controllers\Admin\PostController::class,'destroy']);
 
+    Route::get('/newcategory/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'newpost']);
+    Route::put('/update-newcategory/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'approval']);
+
 });
 Route::prefix('super_admin')->middleware(['auth','isSuperAdmin'])->group(function()
 {
@@ -67,7 +70,7 @@ Route::prefix('super_admin')->middleware(['auth','isSuperAdmin'])->group(functio
     Route::put('/update-post/{post_id}',[App\Http\Controllers\SuperAdmin\PostController::class,'update']);
     Route::get('delete-post/{post_id}',[App\Http\Controllers\SuperAdmin\PostController::class,'destroy']);
 });
-Route::prefix('author')->group(function(){
+Route::prefix('author')->middleware(['auth','isAuthor'])->group(function(){
 
     Route::get('/authordashboard',[App\Http\Controllers\Author\authordashboardController::class,'index']);
 

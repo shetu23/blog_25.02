@@ -5,7 +5,7 @@
         <div class="card mt-4">
                             <div class="card-header">
                                 <h4>view posts
-                                    <a href="{{url('admin/add-post')}}"
+                                    <a href="{{url('author/add-post')}}"
                                     class="btn btn-primary btn-sm float-end">
                                     add posts</a>
 </h4>
@@ -29,19 +29,21 @@
                         </thead>
                        <tbody>
                       @foreach($post as $item)
+                      @if($item->created_by == Auth::user()->id)
                       <tr>
                        <td>{{$item->id}}</td>
                        <td>{{$item->category->name}}</td>
                        <td>{{$item->name}}</td>
                        <td>{{$item->status == '1' ? 'hidden':'shown'}}</td>
                        <td>
-                        <a href="{{url('admin/post/'.$item->id)}}" class="btn btn-success">edit</a>
+                        <a href="{{url('author/post/'.$item->id)}}" class="btn btn-success">edit</a>
                        </td>
                        <td>
-                        <a href="{{url('admin/delete-post/'.$item->id)}}" class="btn btn-success">delete</a>
+                        <a href="{{url('author/delete-post/'.$item->id)}}" class="btn btn-success">delete</a>
                        </td>
                       
                     </tr>
+                    @endif
                       @endforeach
                    
                     </tbody>

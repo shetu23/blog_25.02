@@ -12,11 +12,11 @@ class authordashboardController extends Controller
     
     public function index()
     {
-        $categories=Category::where('created_by', Auth::user()->id)->get();
-        $posts=Post::where('created_by', Auth::user()->id)->get();
+       // $categories=Category::where('created_by', Auth::user()->id)->get();
+       // $posts=Post::where('created_by', Auth::user()->id)->get();
       
 
-        return view('author.authordashboard',compact('categories','posts'));
+        return view('author.authordashboard');
     }
     
 }

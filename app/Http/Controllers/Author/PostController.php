@@ -16,11 +16,11 @@ class PostController extends Controller
     public function index()
     {
         $post=Post::all();
-        return view('admin.post.index',compact('post'));
+        return view('author.post.index',compact('post'));
     }
     public function create()
     {   $category=Category::where('status','0')->get();
-        return view('admin.post.create',compact('category'));
+        return view('author.post.create',compact('category'));
     }
     public function store(PostFormRequest $request)
     {  
@@ -40,13 +40,13 @@ class PostController extends Controller
         $post->status=$request->status==true ? '1':'0';
         $post->created_by=Auth::user()->id;
         $post->save();
-        return redirect('/admin/posts')->with('message','post created successfully');
+        return redirect('/author/posts')->with('message','post created successfully');
     }
     public function edit($post_id)
     {
         $category=Category::where('status','0')->get();
         $post=Post::find($post_id);
-        return view('admin.post.edit',compact('post','category'));
+        return view('author.post.edit',compact('post','category'));
     }
     public function update(PostFormRequest $request,$post_id)
     {
@@ -67,13 +67,13 @@ class PostController extends Controller
         $post->status=$request->status==true ? '1':'0';
         $post->created_by=Auth::user()->id;
         $post->update();
-        return redirect('/admin/posts')->with('message','post updated successfully');
+        return redirect('/author/posts')->with('message','post updated successfully');
     }
     public function destroy($post_id)
     {
           $post=Post::find($post_id);
         $post->delete();
-            return redirect('admin/posts')->with('message','deleted successfully');
+            return redirect('author/posts')->with('message','deleted successfully');
    
     }
 

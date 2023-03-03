@@ -17,6 +17,7 @@ class Category extends Model
             'meta_title',
             'meta_description',
             'meta_keyword',
+            // 'is_approved',
             'navbar_status',
             'status',
             'created_by'
@@ -27,5 +28,6 @@ public function posts()
 {
     return $this->hasMany(Post::class,'category_id','id');
 }
+
 }
 

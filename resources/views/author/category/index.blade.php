@@ -1,10 +1,11 @@
 @extends('layouts.master')
 @section('title','category')
 @section('content')
+
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-        <form action="{{url('admin/delete-category/')}}" method="POST">
+        <form action="{{url('author/delete-category/')}}" method="POST">
         @csrf 
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">delete category with its posts?</h1>
@@ -27,7 +28,7 @@
                         <div class="card mt-4">
                             <div class="card-header">
                                 <h4>view category
-                                    <a href="{{url('admin/add-category')}}"
+                                    <a href="{{url('author/add-category')}}"
                                     class="btn btn-primary btn-sm float-end">
                                     add category</a></h4>
 </div>
@@ -52,6 +53,7 @@
                         </thead>
                        <tbody>
                       @foreach($category as $item)
+                      @if($item->created_by == Auth::user()->id)
                       <tr>
                        <td>{{$item->id}}</td>
                        <td>{{$item->name}}</td>
@@ -61,12 +63,13 @@
                        <td>{{$item->is_approved == '1' ? 'approved':'pending'}}</td>
                        <td>{{$item->status == '1' ? 'hidden':'shown'}}</td>
                        <td>
-                        <a href="{{url('admin/edit-category/'.$item->id)}}" class="btn btn-success">edit</a>
+                        <a href="{{url('author/edit-category/'.$item->id)}}" class="btn btn-success">edit</a>
                        </td>
                        <td>
                         <button type="button" class="btn btn-danger deleteCategoryBtn" value="{{$item->id}}">delete</button>
                     </td>
                     </tr>
+                    @endif
                       @endforeach
                    
                     </tbody>
@@ -89,4 +92,6 @@
         });
     });
 </script>
+
+
 @endsection

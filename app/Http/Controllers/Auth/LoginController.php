@@ -39,7 +39,7 @@ class LoginController extends Controller
         }
         else if(Auth::user()->role_as=='0')
         {
-            return redirect('/home')->with('status','welcome to home');
+            return redirect('/author/authordashboard')->with('status','welcome to author dashboard');
         }
         else
         {

@@ -98,4 +98,20 @@ class CategoryController extends Controller
         return redirect('admin/category')->with('message','category id not found');
     }
 }
+public function newpost($category_id)
+{
+   
+    $category=Category::find($category_id);
+    return view('admin.category.newpost',compact('category'));
+}
+public function approval(Request $request,$category_id)
+{
+    $category= Category::find($category_id);
+   if($category)
+   {
+    $category->is_approved=$request->is_approved;
+    $category->update();
+    return redirect('admin/category')->with('message','updated');
+   }
+}
 }
