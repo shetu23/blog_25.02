@@ -20,7 +20,7 @@
                             <th>Id</th>
                             <th>category</th>
                             <th>post name</th>
-                         
+                            <th>is_approved</th>
                            <th>status</th>
                            <th>edit</th>
                             <th>delete</th>
@@ -34,7 +34,8 @@
                        <td>{{$item->id}}</td>
                        <td>{{$item->category->name}}</td>
                        <td>{{$item->name}}</td>
-                       <td>{{$item->status == '1' ? 'hidden':'shown'}}</td>
+                       <td>{{$item->is_approved == '1' ? 'approved':'pending'}}</td>
+                       <td>{{$item->status == '1' ? 'hidden':'visible'}}</td>
                        <td>
                         <a href="{{url('author/post/'.$item->id)}}" class="btn btn-success">edit</a>
                        </td>

@@ -19,6 +19,8 @@
                                     <a class="nav-link {{Request::is('admin/category') || Request::is('admin/edit-category/*') || Request::is('admin/edit-category/*') ? 'active':''}}" href="{{url('/admin/category')}}">view category</a>
                                 </nav>
                             </div>
+
+
                             <a class="nav-link {{Request :: is('admin/posts') || Request :: is('admin/add-post') || Request::is('admin/post/*')  ? 'collapse active':'collapsed'}}" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Posts
@@ -32,17 +34,18 @@
                             </div>
                        
                            
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
+                          <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="{{url('admin/settings')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                                Settings
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <!-- <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
-                            </a>
+                            </a> -->
                         </div>
-                    </div>
+                    </div> 
+
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         {{Auth::user()->name}}

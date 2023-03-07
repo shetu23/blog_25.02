@@ -58,14 +58,17 @@
                        <td>
                         <img src="{{asset('uploads/category/'.$item->image)}}" width="50px" height="50px" alt="img">
                        </td>
+                       
                        @if($item->created_by == Auth::user()->id && Auth::user()->role_as==1)
-                       $item->is_approved=1
+                      
                        <td>{{$item->is_approved == '1' ? 'posted':'draft'}}</td>
                        @endif
+                       
                        @if($item->created_by != Auth::user()->id && Auth::user()->role_as==1)
                        <td>{{$item->is_approved == '1' ? 'approved':'pending'}}</td>
                        @endif
-                       <td>{{$item->status == '1' ? 'hidden':'shown'}}</td>
+
+                       <td>{{$item->status == '1' ? 'hidden':'visible'}}</td>
                        <td>
                         @if($item->created_by == Auth::user()->id && Auth::user()->role_as==1)
                         <a href="{{url('admin/edit-category/'.$item->id)}}" class="btn btn-success">edit</a>

@@ -85,11 +85,6 @@ Route::prefix('author')->middleware(['auth','isAuthor'])->group(function(){
     Route::put('/update-post/{post_id}',[App\Http\Controllers\Author\PostController::class,'update']);
     Route::get('delete-post/{post_id}',[App\Http\Controllers\Author\PostController::class,'destroy']);
 
-    Route::get('/category',[App\Http\Controllers\Author\CategoryController::class,'index']);
-    Route::get('/add-category',[App\Http\Controllers\Author\CategoryController::class,'create']);
-    Route::post('/add-category',[App\Http\Controllers\Author\CategoryController::class,'store']);
-    Route::get('/edit-category/{category_id}',[App\Http\Controllers\Author\CategoryController::class,'edit']);
-    Route::put('/update-category/{category_id}',[App\Http\Controllers\Author\CategoryController::class,'update']);
-    Route::get('/delete-category/{category_id}',[App\Http\Controllers\Author\CategoryController::class,'destroy']); 
+   
 
 });

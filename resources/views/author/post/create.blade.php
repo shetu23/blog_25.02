@@ -42,10 +42,7 @@
     <label for="">description</label>
     <textarea name="description" rows="5"  id="mySummernote" class="form-control"></textarea>
 </div>
-<div class="mb-3">
-    <label>yt_iframe link</label>
-    <input type="text" name="yt_iframe" class="form-control">
-</div>
+
 <h6>SEO tags</h6>
 <div class="mb-3">
     <label>meta title</label>

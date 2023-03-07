@@ -31,13 +31,13 @@
                                 </nav>
                             </div>
                             
-                            <a class="nav-link {{Request::is('super_admin/users') ? 'active':''}}" href="{{url('super_admin/users')}}" >
+                            <a class="nav-link {{Request::is('super_admin/users') || Request::is('super_admin/user/*') ? 'active':''}}" href="{{url('super_admin/users')}}" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                users
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                              
                             </a>
-                           
-                            <div class="sb-sidenav-menu-heading">Addons</div>
+                          
+                            <!-- <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
@@ -47,7 +47,7 @@
                                 Tables
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         {{Auth::user()->name}}

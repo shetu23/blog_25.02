@@ -33,7 +33,13 @@
                        <td>{{$item->id}}</td>
                        <td>{{$item->category->name}}</td>
                        <td>{{$item->name}}</td>
+                       @if($item->created_by == Auth::user()->id && Auth::user()->role_as==1)
+                      
+                       <td>{{$item->is_approved == '1' ? 'posted':'draft'}}</td>
+                       @endif
+                       @if($item->created_by != Auth::user()->id && Auth::user()->role_as==1)
                        <td>{{$item->is_approved == '1' ? 'approved':'pending'}}</td>
+                       @endif
                        <td>{{$item->status == '1' ? 'hidden':'shown'}}</td>
                        <td>
                        @if($item->created_by == Auth::user()->id && Auth::user()->role_as==1)
