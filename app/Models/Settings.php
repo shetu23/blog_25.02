@@ -13,6 +13,7 @@ class Settings extends Model
        
         'website_name',
        'logo',
+       'favicon',
         'description',
        'meta_title',
         'meta_keyword',

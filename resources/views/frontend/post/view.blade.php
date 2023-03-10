@@ -17,8 +17,8 @@
                 </div>
                 <div class="card card-shadow mt-4">
 
-                <div class="card-body">
-                <p>{{ $post->description }}</p>
+                <div class="card-body post-description"  >
+                <p >{!! $post->description !!}</p>
               
             </div>
           

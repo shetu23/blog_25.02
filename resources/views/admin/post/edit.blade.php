@@ -41,10 +41,7 @@
     <label for="">description</label>
     <textarea name="description" rows="5" id="mySummernote" value="{{$post->description}}" class="form-control">{!! $post->description!!}</textarea>
 </div>
-<div class="col-md-3 mb-3">
-    <label>is_approved</label>
-    <input type="checkbox" name="is_approved"  {{$category->is_approved== '1' ? 'checked':''}}/>
-</div>
+
 <h6>SEO tags</h6>
 <div class="mb-3">
     <label>meta title</label>
@@ -57,6 +54,10 @@
 <div class="mb-3">
     <label>meta keywords</label>
     <textarea name="meta_keyword" rows="3" class="form-control">{!! $post->meta_keyword !!}</textarea>
+</div>
+<div class="col-md-3 mb-3">
+    <label>is_approved</label>
+    <input type="checkbox" name="is_approved"  {{$post->is_approved== '1' ? 'checked':''}}/>
 </div>
 <h6>Status mode</h6>
 

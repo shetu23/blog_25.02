@@ -36,3 +36,8 @@
 .bg-gray{
     background-color:lightblue !important;
 }
+.post-description{
+    overflow-y:scroll;
+    scrollbar-width:none;
+    }
+    

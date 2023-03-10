@@ -30,13 +30,13 @@ class PostController extends Controller
         $post->name=$data['name'];
         $post->slug=Str::slug($data['slug']);
         $post->description=$data['description'];
-        $post->yt_iframe=$data['yt_iframe'];
+       
       
         $post->meta_title=$data['meta_title'];
         $post->meta_description=$data['meta_description'];
         $post->meta_keyword=$data['meta_keyword'];
 
-       
+        $post->is_approved=$request->is_approved==true;
         $post->status=$request->status==true ? '1':'0';
         $post->created_by=Auth::user()->id;
         $post->save();
@@ -59,11 +59,11 @@ class PostController extends Controller
         $post->slug=Str::slug($data['slug']);
         $post->description=$data['description'];
     
-        $post->yt_iframe=$data['yt_iframe'];
+      
         $post->meta_title=$data['meta_title'];
         $post->meta_description=$data['meta_description'];
         $post->meta_keyword=$data['meta_keyword'];
-
+        $post->is_approved=$request->is_approved==true;
         $post->status=$request->status==true ? '1':'0';
         $post->created_by=Auth::user()->id;
         $post->update();

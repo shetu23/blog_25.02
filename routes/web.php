@@ -51,6 +51,10 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function()
     Route::get('/newpost/{post_id}',[App\Http\Controllers\Admin\PostController::class,'newpost']);
     Route::put('/update-newpost/{post_id}',[App\Http\Controllers\Admin\PostController::class,'approval']);
 
+    Route::get('/settings',[App\Http\Controllers\Admin\SettingsController::class,'index']);
+    Route::post('/settings',[App\Http\Controllers\Admin\SettingsController::class,'savedata']);
+
+
 });
 Route::prefix('super_admin')->middleware(['auth','isSuperAdmin'])->group(function()
 {
